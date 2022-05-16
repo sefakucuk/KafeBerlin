@@ -107,7 +107,7 @@
             this.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "UrunlerForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Ürünler";
             ((System.ComponentModel.ISupportInitialize)(this.nud_BirimFiyat)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Urunler)).EndInit();

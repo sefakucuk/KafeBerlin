@@ -13,7 +13,7 @@ namespace KafeBerlin.Data
 
         public override string ToString()
         {
-            return $"{UrunAd} ({BirimFiyat:c2})";
+            return $"{UrunAd} ({BirimFiyat:c2})"; // :c2 yazıldığında pcnin diline göre para birimi alır ve ondalık olarak 2 hane ekler
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cmb_Urun = new System.Windows.Forms.ComboBox();
             this.nud_Adet = new System.Windows.Forms.NumericUpDown();
             this.btn_Ekle = new System.Windows.Forms.Button();
@@ -43,6 +44,10 @@
             this.btn_OdemeAl = new System.Windows.Forms.Button();
             this.btn_AnasayfaDon = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.UrunAd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BirimFiyat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Adet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TutarTL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.nud_Adet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Detaylar)).BeginInit();
             this.SuspendLayout();
@@ -59,6 +64,16 @@
             // nud_Adet
             // 
             this.nud_Adet.Location = new System.Drawing.Point(194, 30);
+            this.nud_Adet.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.nud_Adet.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nud_Adet.Name = "nud_Adet";
             this.nud_Adet.Size = new System.Drawing.Size(120, 24);
             this.nud_Adet.TabIndex = 1;
@@ -77,6 +92,7 @@
             this.btn_Ekle.TabIndex = 2;
             this.btn_Ekle.Text = "Ekle";
             this.btn_Ekle.UseVisualStyleBackColor = true;
+            this.btn_Ekle.Click += new System.EventHandler(this.btn_Ekle_Click);
             // 
             // label1
             // 
@@ -118,19 +134,29 @@
             // 
             // dgv_Detaylar
             // 
+            this.dgv_Detaylar.AllowUserToAddRows = false;
             this.dgv_Detaylar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgv_Detaylar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_Detaylar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Detaylar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.UrunAd,
+            this.BirimFiyat,
+            this.Adet,
+            this.TutarTL});
             this.dgv_Detaylar.Location = new System.Drawing.Point(12, 71);
             this.dgv_Detaylar.Name = "dgv_Detaylar";
+            this.dgv_Detaylar.ReadOnly = true;
+            this.dgv_Detaylar.RowHeadersVisible = false;
+            this.dgv_Detaylar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_Detaylar.Size = new System.Drawing.Size(464, 436);
             this.dgv_Detaylar.TabIndex = 7;
             // 
             // lbl_MasaNo
             // 
             this.lbl_MasaNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_MasaNo.BackColor = System.Drawing.Color.Salmon;
+            this.lbl_MasaNo.BackColor = System.Drawing.Color.SteelBlue;
             this.lbl_MasaNo.Font = new System.Drawing.Font("Calibri", 75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lbl_MasaNo.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lbl_MasaNo.Location = new System.Drawing.Point(506, 71);
@@ -143,19 +169,21 @@
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(503, 314);
+            this.label4.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.Location = new System.Drawing.Point(503, 311);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(94, 17);
+            this.label4.Size = new System.Drawing.Size(99, 38);
             this.label4.TabIndex = 9;
             this.label4.Text = "Ödeme Tutarı :";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbl_OdemeTutar
             // 
             this.lbl_OdemeTutar.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lbl_OdemeTutar.Location = new System.Drawing.Point(603, 314);
+            this.lbl_OdemeTutar.Font = new System.Drawing.Font("Calibri", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbl_OdemeTutar.Location = new System.Drawing.Point(608, 289);
             this.lbl_OdemeTutar.Name = "lbl_OdemeTutar";
-            this.lbl_OdemeTutar.Size = new System.Drawing.Size(147, 17);
+            this.lbl_OdemeTutar.Size = new System.Drawing.Size(142, 73);
             this.lbl_OdemeTutar.TabIndex = 10;
             this.lbl_OdemeTutar.Text = "0.0 ₺";
             this.lbl_OdemeTutar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -171,6 +199,7 @@
             this.btn_SiparisIptal.TabIndex = 11;
             this.btn_SiparisIptal.Text = "SİPARİŞ İPTAL";
             this.btn_SiparisIptal.UseVisualStyleBackColor = false;
+            this.btn_SiparisIptal.Click += new System.EventHandler(this.btn_SiparisIptal_Click);
             // 
             // btn_OdemeAl
             // 
@@ -183,6 +212,7 @@
             this.btn_OdemeAl.TabIndex = 12;
             this.btn_OdemeAl.Text = "ÖDEME AL";
             this.btn_OdemeAl.UseVisualStyleBackColor = false;
+            this.btn_OdemeAl.Click += new System.EventHandler(this.btn_OdemeAl_Click);
             // 
             // btn_AnasayfaDon
             // 
@@ -195,6 +225,7 @@
             this.btn_AnasayfaDon.TabIndex = 13;
             this.btn_AnasayfaDon.Text = "ANASAYFAYA DÖN";
             this.btn_AnasayfaDon.UseVisualStyleBackColor = false;
+            this.btn_AnasayfaDon.Click += new System.EventHandler(this.btn_AnasayfaDon_Click);
             // 
             // label6
             // 
@@ -205,6 +236,40 @@
             this.label6.Size = new System.Drawing.Size(60, 17);
             this.label6.TabIndex = 14;
             this.label6.Text = "Masa No";
+            // 
+            // UrunAd
+            // 
+            this.UrunAd.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.UrunAd.DataPropertyName = "UrunAd";
+            dataGridViewCellStyle4.Format = "c2";
+            this.UrunAd.DefaultCellStyle = dataGridViewCellStyle4;
+            this.UrunAd.HeaderText = "Ürün Adı";
+            this.UrunAd.Name = "UrunAd";
+            this.UrunAd.ReadOnly = true;
+            // 
+            // BirimFiyat
+            // 
+            this.BirimFiyat.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.BirimFiyat.DataPropertyName = "BirimFiyat";
+            this.BirimFiyat.HeaderText = "Birim Fiyatı";
+            this.BirimFiyat.Name = "BirimFiyat";
+            this.BirimFiyat.ReadOnly = true;
+            // 
+            // Adet
+            // 
+            this.Adet.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Adet.DataPropertyName = "Adet";
+            this.Adet.HeaderText = "Adet";
+            this.Adet.Name = "Adet";
+            this.Adet.ReadOnly = true;
+            // 
+            // TutarTL
+            // 
+            this.TutarTL.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TutarTL.DataPropertyName = "TutarTL";
+            this.TutarTL.HeaderText = "Tutar";
+            this.TutarTL.Name = "TutarTL";
+            this.TutarTL.ReadOnly = true;
             // 
             // SiparisForm
             // 
@@ -228,8 +293,9 @@
             this.Controls.Add(this.cmb_Urun);
             this.Font = new System.Drawing.Font("Calibri", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.MaximizeBox = false;
             this.Name = "SiparisForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Masa 0";
             ((System.ComponentModel.ISupportInitialize)(this.nud_Adet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Detaylar)).EndInit();
@@ -255,5 +321,9 @@
         private System.Windows.Forms.Button btn_OdemeAl;
         private System.Windows.Forms.Button btn_AnasayfaDon;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UrunAd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BirimFiyat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Adet;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TutarTL;
     }
 }

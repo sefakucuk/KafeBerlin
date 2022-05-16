@@ -28,10 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AnaForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tsmi_Urunler = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmi_GecmisSiparisler = new System.Windows.Forms.ToolStripMenuItem();
             this.lvw_Masalar = new System.Windows.Forms.ListView();
+            this.iml_Buyuk = new System.Windows.Forms.ImageList(this.components);
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,11 +66,20 @@
             // 
             this.lvw_Masalar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvw_Masalar.HideSelection = false;
+            this.lvw_Masalar.LargeImageList = this.iml_Buyuk;
             this.lvw_Masalar.Location = new System.Drawing.Point(0, 26);
             this.lvw_Masalar.Name = "lvw_Masalar";
             this.lvw_Masalar.Size = new System.Drawing.Size(653, 424);
             this.lvw_Masalar.TabIndex = 1;
             this.lvw_Masalar.UseCompatibleStateImageBehavior = false;
+            this.lvw_Masalar.DoubleClick += new System.EventHandler(this.lvw_Masalar_DoubleClick);
+            // 
+            // iml_Buyuk
+            // 
+            this.iml_Buyuk.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("iml_Buyuk.ImageStream")));
+            this.iml_Buyuk.TransparentColor = System.Drawing.Color.Transparent;
+            this.iml_Buyuk.Images.SetKeyName(0, "bos");
+            this.iml_Buyuk.Images.SetKeyName(1, "dolu");
             // 
             // AnaForm
             // 
@@ -93,6 +105,7 @@
         private System.Windows.Forms.ToolStripMenuItem tsmi_Urunler;
         private System.Windows.Forms.ToolStripMenuItem tsmi_GecmisSiparisler;
         private System.Windows.Forms.ListView lvw_Masalar;
+        private System.Windows.Forms.ImageList iml_Buyuk;
     }
 }
 
