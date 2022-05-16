@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.cmb_Urun = new System.Windows.Forms.ComboBox();
             this.nud_Adet = new System.Windows.Forms.NumericUpDown();
             this.btn_Ekle = new System.Windows.Forms.Button();
@@ -37,6 +37,10 @@
             this.cmb_MasaNo = new System.Windows.Forms.ComboBox();
             this.btn_Tasi = new System.Windows.Forms.Button();
             this.dgv_Detaylar = new System.Windows.Forms.DataGridView();
+            this.UrunAd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BirimFiyat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Adet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TutarTL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbl_MasaNo = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.lbl_OdemeTutar = new System.Windows.Forms.Label();
@@ -44,10 +48,6 @@
             this.btn_OdemeAl = new System.Windows.Forms.Button();
             this.btn_AnasayfaDon = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.UrunAd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BirimFiyat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Adet = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TutarTL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.nud_Adet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Detaylar)).BeginInit();
             this.SuspendLayout();
@@ -63,9 +63,10 @@
             // 
             // nud_Adet
             // 
+            this.nud_Adet.DecimalPlaces = 2;
             this.nud_Adet.Location = new System.Drawing.Point(194, 30);
             this.nud_Adet.Maximum = new decimal(new int[] {
-            1000,
+            10000,
             0,
             0,
             0});
@@ -146,12 +147,47 @@
             this.Adet,
             this.TutarTL});
             this.dgv_Detaylar.Location = new System.Drawing.Point(12, 71);
+            this.dgv_Detaylar.MultiSelect = false;
             this.dgv_Detaylar.Name = "dgv_Detaylar";
             this.dgv_Detaylar.ReadOnly = true;
             this.dgv_Detaylar.RowHeadersVisible = false;
             this.dgv_Detaylar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_Detaylar.Size = new System.Drawing.Size(464, 436);
             this.dgv_Detaylar.TabIndex = 7;
+            // 
+            // UrunAd
+            // 
+            this.UrunAd.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.UrunAd.DataPropertyName = "UrunAd";
+            dataGridViewCellStyle1.Format = "c2";
+            this.UrunAd.DefaultCellStyle = dataGridViewCellStyle1;
+            this.UrunAd.HeaderText = "Ürün Adı";
+            this.UrunAd.Name = "UrunAd";
+            this.UrunAd.ReadOnly = true;
+            // 
+            // BirimFiyat
+            // 
+            this.BirimFiyat.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.BirimFiyat.DataPropertyName = "BirimFiyat";
+            this.BirimFiyat.HeaderText = "Birim Fiyatı";
+            this.BirimFiyat.Name = "BirimFiyat";
+            this.BirimFiyat.ReadOnly = true;
+            // 
+            // Adet
+            // 
+            this.Adet.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Adet.DataPropertyName = "Adet";
+            this.Adet.HeaderText = "Adet";
+            this.Adet.Name = "Adet";
+            this.Adet.ReadOnly = true;
+            // 
+            // TutarTL
+            // 
+            this.TutarTL.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TutarTL.DataPropertyName = "TutarTL";
+            this.TutarTL.HeaderText = "Tutar";
+            this.TutarTL.Name = "TutarTL";
+            this.TutarTL.ReadOnly = true;
             // 
             // lbl_MasaNo
             // 
@@ -236,40 +272,6 @@
             this.label6.Size = new System.Drawing.Size(60, 17);
             this.label6.TabIndex = 14;
             this.label6.Text = "Masa No";
-            // 
-            // UrunAd
-            // 
-            this.UrunAd.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.UrunAd.DataPropertyName = "UrunAd";
-            dataGridViewCellStyle4.Format = "c2";
-            this.UrunAd.DefaultCellStyle = dataGridViewCellStyle4;
-            this.UrunAd.HeaderText = "Ürün Adı";
-            this.UrunAd.Name = "UrunAd";
-            this.UrunAd.ReadOnly = true;
-            // 
-            // BirimFiyat
-            // 
-            this.BirimFiyat.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.BirimFiyat.DataPropertyName = "BirimFiyat";
-            this.BirimFiyat.HeaderText = "Birim Fiyatı";
-            this.BirimFiyat.Name = "BirimFiyat";
-            this.BirimFiyat.ReadOnly = true;
-            // 
-            // Adet
-            // 
-            this.Adet.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Adet.DataPropertyName = "Adet";
-            this.Adet.HeaderText = "Adet";
-            this.Adet.Name = "Adet";
-            this.Adet.ReadOnly = true;
-            // 
-            // TutarTL
-            // 
-            this.TutarTL.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TutarTL.DataPropertyName = "TutarTL";
-            this.TutarTL.HeaderText = "Tutar";
-            this.TutarTL.Name = "TutarTL";
-            this.TutarTL.ReadOnly = true;
             // 
             // SiparisForm
             // 
